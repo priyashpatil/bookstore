@@ -2,6 +2,11 @@
 
 Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
 
+## Requirements
+
+- PHP 8.2
+- Composer 2.6+
+
 ## Development Approach & Philosophy
 
 The project was started with a problem statement and research for the solution. Starting with writing down bare minimum
@@ -10,7 +15,6 @@ arranging the basic building blocks for tech stack along with referencing the UI
 
 While starting the development I took the production first philosophy to ensure I had the ability to deploy the updates
 as I start developing on more features than just bare minimum requirements.
-
 
 ## The development Phases
 
