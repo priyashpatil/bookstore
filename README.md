@@ -1,6 +1,7 @@
 # BookStore App - Development Case Study
 
-The BookStore App is a simple application developed with Laravel by using the [development philosophy](DEVELOPMENT_PHILOSOPHY.md).
+The BookStore App is a simple application developed with Laravel by using
+the [development philosophy](DEVELOPMENT_PHILOSOPHY.md).
 
 Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
 
@@ -18,3 +19,37 @@ Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/
 5. Start the server with `php artisan serve`.
 
 > Seed the fake data by running `php artisan migrate:fresh --seed`.
+
+## Infrastructure
+
+Deployments are configured with a combination of tools and currently only supports adding application server setup. The
+current deployment for development only for production the scripts and services deployments need to be refactored.
+
+> Terraform provider will ask for the token while performing the operation.
+
+- Terraform - Refer docs: https://developer.hashicorp.com/terraform/docs
+- DigitalOcean Access Key. Refer docs: https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
+
+Running terraform plan.
+
+```shell
+terraform -chdir=./infra/terraform  plan -var-file=terraform.tfvars
+```
+
+Running terraform validate.
+
+```shell
+terraform -chdir=./infra/terraform validate
+```
+
+Running terraform apply.
+
+```shell
+terraform -chdir=./infra/terraform apply -auto-approve -var-file=terraform.tfvars
+```
+
+Running terraform destroy.
+
+```shell
+terraform -chdir=./infra/terraform destroy -auto-approve -var-file=terraform.tfvars
+```
