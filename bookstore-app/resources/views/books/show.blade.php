@@ -6,7 +6,7 @@
             <a href="{{route('home')}}">&larr; Back to home</a>
         </div>
 
-        <div class="card mb-2">
+        <div class="card mb-3">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
@@ -24,7 +24,12 @@
             </div>
         </div>
 
-        <h2 class="h4">Description</h2>
-        <div>{{$book->desc}}</div>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="h4">Description</h2>
+                <div>{{$book->desc}}</div>
+            </div>
+        </div>
+
     </div>
 @endsection
