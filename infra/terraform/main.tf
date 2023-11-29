@@ -48,6 +48,11 @@ resource "digitalocean_droplet" "bookstore" {
   }
 
   provisioner "file" {
+    source      = "../php/fpm-pool.conf"
+    destination = "/tmp/fpm-pool.conf"
+  }
+
+  provisioner "file" {
     source      = "../../deploy.sh"
     destination = "/tmp/deploy.sh"
   }
