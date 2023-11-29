@@ -28,6 +28,8 @@
         @endif
     </form>
 
+    <hr>
+
     @if(count($books))
         <div class="mb-3">
             {{ $books->links() }}
@@ -50,6 +52,11 @@
 
         <div class="mt-3">
             {{ $books->links() }}
+        </div>
+    @else
+        <div class="text-center">
+            <div class="fs-3">We seems to run out of titles</div>
+            <div>Try searching for another keyword.</div>
         </div>
     @endif
 </div>
