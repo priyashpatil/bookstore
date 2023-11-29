@@ -3,11 +3,15 @@
 @section('content')
 
     <div class="pt-3 mb-3 d-flex align-items-center justify-content-between">
-        <h1 class="h2">Books</h1>
-        <form>
-            <input type="search" name="q" class="form-control" placeholder="Search" aria-label="Search"
-                   value="{{request()->query('q')}}">
-        </form>
+        <div class="d-inline-flex align-items-center gap-2">
+            <h1 class="h2 mb-0 d-inline-block">Books</h1>
+            <form class="d-inline-block">
+                <input type="search" name="q" class="form-control" placeholder="Search" aria-label="Search"
+                       value="{{request()->query('q')}}">
+            </form>
+        </div>
+
+        <a class="btn btn-primary" href="{{route('admin.books.create')}}">Add book</a>
     </div>
 
     <div class="mb-3">{{ $books->links() }}</div>
