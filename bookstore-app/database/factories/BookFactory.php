@@ -20,6 +20,7 @@ class BookFactory extends Factory
             'title' => $this->faker->sentence,
             'author' => $this->faker->name,
             'genre' => $this->faker->word,
+            'isbn' => $this->faker->unique()->isbn13(),
             'image' => $this->faker->imageUrl(width: 500, height: 650),
             'published' => $this->faker->date,
             'publisher' => $this->faker->company,
