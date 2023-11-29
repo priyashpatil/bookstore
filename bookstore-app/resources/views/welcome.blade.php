@@ -19,12 +19,12 @@
         <div class="mb-3">
             <label for="searchInput" class="form-label">Search</label>
             <input class="form-control" id="searchInput" name="q" type="search" required
-                   placeholder="Search by title, author, isbn">
+                   placeholder="Search by title, author, isbn" value="{{request()->query('q')}}">
         </div>
 
         <button type="submit" class="btn btn-primary">Search</button>
         @if(request()->query('q'))
-            <button type="reset" class="btn btn-secondary">Reset</button>
+            <a href="/" class="btn btn-secondary">Reset</a>
         @endif
     </form>
 
