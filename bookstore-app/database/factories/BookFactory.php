@@ -24,7 +24,7 @@ class BookFactory extends Factory
             'image' => $this->faker->imageUrl(width: 500, height: 650),
             'published' => $this->faker->date,
             'publisher' => $this->faker->company,
-            'desc' => $this->faker->paragraphs(3, true)
+            'desc' => $this->faker->paragraphs(10, true)
         ];
     }
 }
