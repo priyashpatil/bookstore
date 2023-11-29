@@ -7,5 +7,6 @@ Route::get('/{book}', \App\Http\Controllers\BookShowController::class)->name('bo
 
 // Admin Routes
 Route::prefix('/admin')->group(function () {
-    Route::get('/dashboard', \App\Http\Controllers\Admin\DashboardController::class);
+    Route::get('/dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('admin.dashboard');
+    Route::resource('/books', \App\Http\Controllers\Admin\BookController::class, ['as' => 'admin']);
 });
