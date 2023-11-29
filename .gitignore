@@ -6,3 +6,4 @@
 *.tfvars
 *.tfstate*
 .env
+package-lock.json
