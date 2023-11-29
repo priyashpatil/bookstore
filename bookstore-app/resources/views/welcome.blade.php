@@ -27,17 +27,21 @@
                 {{ $books->links() }}
             </div>
             @foreach($books as $book)
-                <div class="row mb-2">
-                    <div class="col-md-4">
-                        <img class="img-fluid" src="{{ $book->image }}" alt="{{ $book->title }}">
-                    </div>
-                    <div class="col-md-8">
-                        <h3><a href="{{route('books.show', $book->id)}}">{{ $book->title }}</a></h3>
-                        <div><b>Author:</b> {{ $book->author }}</div>
-                        <div><b>Genre:</b> {{ $book->genre }}</div>
-                        <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
-                        <div><b>Publisher:</b> {{$book->publisher}}</div>
-                        <div><b>ISBN:</b> {{$book->isbn}}</div>
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="img-fluid" src="{{ $book->image }}" alt="{{ $book->title }}">
+                            </div>
+                            <div class="col-md-9">
+                                <h3><a href="{{route('books.show', $book->id)}}">{{ $book->title }}</a></h3>
+                                <div><b>Author:</b> {{ $book->author }}</div>
+                                <div><b>Genre:</b> {{ $book->genre }}</div>
+                                <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
+                                <div><b>Publisher:</b> {{$book->publisher}}</div>
+                                <div><b>ISBN:</b> {{$book->isbn}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endforeach
