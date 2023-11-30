@@ -8,20 +8,95 @@
 
         <div class="mb-3">
             <label class="form-label" for="title">Title</label>
-            <input id="title" name="title" type="text" class="form-control" required value="{{old('title')}}">
+            <input id="title" name="title" type="text" class="form-control @error('title') is-invalid @enderror"
+                   required value="{{old('title')}}">
+
+            @error('title')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="author">Author</label>
+                    <input id="author" name="author" type="text" class="form-control @error('author') is-invalid @enderror"
+                           required value="{{old('author')}}">
+
+                    @error('author')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="genre">Genre</label>
+                    <input id="genre" name="genre" type="text" class="form-control @error('genre') is-invalid @enderror"
+                           required value="{{old('genre')}}">
+
+                    @error('genre')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="isbn">ISBN</label>
+                    <input id="isbn" name="isbn" type="text" class="form-control @error('isbn') is-invalid @enderror"
+                           required value="{{old('isbn')}}">
+
+                    @error('isbn')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image</label>
+                    <input id="image" name="isbn" type="file" class="form-control @error('image') is-invalid @enderror"
+                           required value="{{old('image')}}" accept="image/*">
+
+                    @error('image')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="published">Published</label>
+                    <input id="published" name="published" type="date"
+                           class="form-control @error('published') is-invalid @enderror"
+                           required value="{{old('published')}}">
+
+                    @error('published')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="publisher">Publisher</label>
+                    <input id="publisher" name="publisher" type="text"
+                           class="form-control @error('publisher') is-invalid @enderror"
+                           required value="{{old('publisher')}}">
+
+                    @error('publisher')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label" for="author">Author</label>
-            <input id="author" name="author" type="text" class="form-control" required value="{{old('author')}}">
-        </div>
+            <label class="form-label" for="desc">Description</label>
+            <textarea id="desc" name="desc" type="date" class="form-control @error('desc') is-invalid @enderror"
+                      required>{{old('desc')}}</textarea>
 
-        <div class="mb-3">
-            <label class="form-label" for="genre">Genre</label>
-            <input id="genre" name="genre" type="text" class="form-control" required value="{{old('genre')}}">
+            @error('desc')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
-
 @endsection
