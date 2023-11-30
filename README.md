@@ -39,7 +39,7 @@ The admin login requires existing user so consider seeding data for testing.
 ## Infrastructure
 
 Deployments are configured with a combination of tools and currently only supports adding application server setup. The
-current deployment for development only for production the scripts and services deployments need to be refactored.
+current deployment needs additional improvements to be made for production.
 
 TODO:
 
