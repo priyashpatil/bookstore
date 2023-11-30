@@ -3,8 +3,9 @@
 @section('content')
     <div class="container py-3" style="max-width: 720px;">
 
-        <div class="mb-3">
+        <div class="mb-3 d-flex align-items-center justify-content-between">
             <a href="{{route('admin.books.index')}}">&larr; Back to books</a>
+            <a href="{{route('admin.books.edit', $book->id)}}" class="btn btn-primary">Edit Book</a>
         </div>
 
         <div class="card mb-3">
