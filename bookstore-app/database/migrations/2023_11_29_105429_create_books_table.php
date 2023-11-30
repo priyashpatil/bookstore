@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('published');
             $table->string('publisher');
             $table->text('desc');
+            $table->decimal('price');
+            $table->decimal('sale_price');
             $table->timestamps();
             $table->softDeletes();
         });
