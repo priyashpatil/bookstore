@@ -22,11 +22,20 @@
                             </div>
                             <div class="col-md-9">
                                 <h3><a href="{{route('books.show', $book->id)}}">{{ $book->title }}</a></h3>
-                                <div><b>Author:</b> {{ $book->author }}</div>
-                                <div><b>Genre:</b> {{ $book->genre }}</div>
-                                <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
-                                <div><b>Publisher:</b> {{$book->publisher}}</div>
-                                <div><b>ISBN:</b> {{$book->isbn}}</div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div><b>Author:</b> {{ $book->author }}</div>
+                                        <div><b>Genre:</b> {{ $book->genre }}</div>
+                                        <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div><b>Publisher:</b> {{$book->publisher}}</div>
+                                        <div><b>ISBN:</b> {{$book->isbn}}</div>
+                                        <div><b>Price:</b> ₹{{$book->sale_price}}
+                                            <del>{{$book->price}}</del>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

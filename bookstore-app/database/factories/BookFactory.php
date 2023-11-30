@@ -16,8 +16,8 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
-        $price = $this->faker->randomNumber(3);
-        $discount = $this->faker->randomNumber(2);
+        $price = $this->faker->numberBetween(500, 3000);
+        $discount = $this->faker->numberBetween(100, 300);
         return [
             'title' => $this->faker->sentence,
             'author' => $this->faker->name,

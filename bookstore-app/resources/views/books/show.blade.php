@@ -14,14 +14,27 @@
                     </div>
                     <div class="col-md-8">
                         <h1 class="h2">{{ $book->title }}</h1>
-                        <div><b>Author:</b> {{ $book->author }}</div>
-                        <div><b>Genre:</b> {{ $book->genre }}</div>
-                        <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
-                        <div><b>Publisher:</b> {{$book->publisher}}</div>
-                        <div><b>ISBN:</b> {{$book->isbn}}</div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div><b>Author:</b> {{ $book->author }}</div>
+                                <div><b>Genre:</b> {{ $book->genre }}</div>
+                                <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div><b>Publisher:</b> {{$book->publisher}}</div>
+                                <div><b>ISBN:</b> {{$book->isbn}}</div>
+                            </div>
+                        </div>
+
+                        <div class="lh-1">
+                            <div class="fs-3">₹{{$book->sale_price}}</div>
+                            <div ><del>{{$book->price}}</del></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="card">
