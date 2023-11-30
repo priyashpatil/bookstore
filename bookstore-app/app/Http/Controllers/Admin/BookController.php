@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -71,9 +72,28 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Book $book)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'isbn' => ['required', 'string', 'min:13', 'max:13', Rule::unique('books', 'isbn')->ignore($book->id)],
+            'genre' => 'required|string|max:50',
+            'published' => 'required|date',
+            'publisher' => 'required|string|max:255',
+            'image' => 'nullable|image|max:5000',
+            'desc' => 'required|string|max:2000',
+        ]);
+
+        if ($request->has('image')) {
+            $validated['image'] = Storage::disk('public')
+                ->url($request->file('image')
+                    ->store('book-covers', ['disk' => 'public']));
+        }
+
+        $book->update($validated);
+
+        return redirect()->route('admin.books.edit', $book->id);
     }
 
     /**
