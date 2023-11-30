@@ -27,10 +27,11 @@
                             </div>
                         </div>
 
-                        <div class="lh-1">
-                            <div class="fs-3">₹{{$book->sale_price}}</div>
-                            <div ><del>{{$book->price}}</del></div>
+                        <div>
+                            <span class="fs-3">₹{{$book->sale_price}}</span>
+                            <del>{{$book->price}}</del>
                         </div>
+
                     </div>
                 </div>
             </div>
