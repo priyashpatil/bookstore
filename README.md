@@ -1,7 +1,6 @@
 # BookStore App - Development Case Study
 
-The BookStore App is a simple application developed with Laravel by using
-the [development philosophy](DEVELOPMENT_PHILOSOPHY.md).
+The BookStore App is a simple application developed with Laravel.
 
 Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
 
@@ -9,6 +8,7 @@ Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/
 
 - PHP 8.2
 - Composer 2.6
+- Docker
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/
 
 > Seed the fake data by running `php artisan migrate:fresh --seed`.
 
-## Infrastructure
+## Infrastructure (Work in progress)
 
 Deployments are configured with a combination of tools and currently only supports adding application server setup. The
 current deployment for development only for production the scripts and services deployments need to be refactored.
