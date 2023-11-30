@@ -4,6 +4,8 @@ The BookStore App is a simple application developed with Laravel.
 
 Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
 
+![Alt Text](screenshot.png)
+
 ## Requirements
 - PHP 8.2
 - Composer 2.6
@@ -21,7 +23,7 @@ Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/v
 8. Storage link `./vendor/bin/sail artisan storage:link`.
 
 > Seed with fake data by running `./vendor/bin/sail artisan migrate:fresh --seed`.
-> With the seeder the deafult admin credentials are email and password are `admin@email.com` and `password`.
+> With the seeder the default admin credentials are email and password are `admin@email.com` and `password`.
 
 ## Infrastructure
 
@@ -29,9 +31,8 @@ Deployments are configured with a combination of tools and currently only suppor
 current deployment for development only for production the scripts and services deployments need to be refactored.
 
 TODO:
-
-- [ ] Supervisor
 - [ ] Meilisearch
+- [ ] Supervisor
 
 > Terraform provider will ask for the token while performing the operation.
 
