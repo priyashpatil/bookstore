@@ -26,6 +26,9 @@
                         <div><b>Published:</b> {{$book->published->format('d-m-Y')}}</div>
                         <div><b>Publisher:</b> {{$book->publisher}}</div>
                         <div><b>ISBN:</b> {{$book->isbn}}</div>
+                        <div><b>Price:</b> ₹{{$book->sale_price}}
+                            <del>{{$book->price}}</del>
+                        </div>
                     </div>
                 </div>
             </div>

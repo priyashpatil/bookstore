@@ -42,6 +42,8 @@ class BookController extends Controller
             'publisher' => 'required|string|max:255',
             'image' => 'required|image|max:5000',
             'desc' => 'required|string|max:2000',
+            'price' => 'required|decimal:2',
+            'sale_price' => 'required|decimal:2',
         ]);
 
         $validated['image'] = Storage::disk('public')
@@ -83,6 +85,8 @@ class BookController extends Controller
             'publisher' => 'required|string|max:255',
             'image' => 'nullable|image|max:5000',
             'desc' => 'required|string|max:2000',
+            'price' => 'required|decimal:2',
+            'sale_price' => 'required|decimal:2',
         ]);
 
         if ($request->has('image')) {

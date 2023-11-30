@@ -86,6 +86,32 @@
                     @enderror
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input id="price" name="price" type="number" placeholder="100.00"
+                           class="form-control @error('price') is-invalid @enderror"
+                           required value="{{old('price')}}">
+
+                    @error('price')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label" for="sale_price">Sale Price</label>
+                    <input id="sale_price" name="sale_price" type="number" placeholder="90.00"
+                           class="form-control @error('sale_price') is-invalid @enderror"
+                           required value="{{old('sale_price')}}">
+
+                    @error('sale_price')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
+                </div>
+            </div>
         </div>
 
         <div class="mb-3">
