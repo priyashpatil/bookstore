@@ -1,11 +1,10 @@
-# BookStore App - Development Case Study
+# BookStore App - Task
 
 The BookStore App is a simple application developed with Laravel.
 
-Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
+Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
 
 ## Requirements
-
 - PHP 8.2
 - Composer 2.6
 - Docker
@@ -13,13 +12,16 @@ Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/
 ## Getting Started
 
 1. Clone the repository.
-2. Rename or copy the `bookstore-app/.env-example` to `bookstore-app/.env`.
-3. Update the `.env` with the database credentials.
-4. Run `php artisan migrate` to run the database migrations.
-5. Start the server with `php artisan serve`.
-6. Storage link `./vendor/bin/sail artisan storage:link`.
+2. `cd` into `bookstor-app`.
+3. Run `composer install`.
+4. Rename or copy the `bookstore-app/.env-example` to `bookstore-app/.env`.
+5. Update the `.env` with the database and scout credentials.
+6. Run `./vendor/bin/sail up -d`.
+7. Run `./vendor/bin/sail artisan migrate` to run the database migrations.
+8. Storage link `./vendor/bin/sail artisan storage:link`.
 
-> Seed the fake data by running `php artisan migrate:fresh --seed`.
+> Seed with fake data by running `./vendor/bin/sail artisan migrate:fresh --seed`.
+> With the seeder the deafult admin credentials are email and password are `admin@email.com` and `password`.
 
 ## Infrastructure
 
@@ -30,7 +32,6 @@ TODO:
 
 - [ ] Supervisor
 - [ ] Meilisearch
-- [ ] Horizon
 
 > Terraform provider will ask for the token while performing the operation.
 
