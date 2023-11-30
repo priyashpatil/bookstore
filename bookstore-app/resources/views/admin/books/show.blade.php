@@ -3,6 +3,10 @@
 @section('content')
     <div class="container py-3" style="max-width: 720px;">
 
+        <div class="mb-3">
+            <a href="{{route('admin.books.index')}}">&larr; Back to books</a>
+        </div>
+
         <div class="card mb-3">
             <div class="card-body">
                 <div class="row">
