@@ -11,10 +11,19 @@
 
         <form class="d-flex mb-4" role="search">
             <input v-model="query" name="q" class="form-control me-2" type="search"
-                   placeholder="Search by title, author, isbn, genre" v-on:input="search()"
+                   placeholder="Search by title, author, isbn, genre" v-on:input="meta.current_page=1; search();"
                    aria-label="Search by title, author, isbn, genre" value="{{request()->query('q')}}">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+{{--            <button class="btn btn-outline-success" type="submit">Search</button>--}}
         </form>
+
+        <nav class="mt-b" aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" :class="{ disabled: !link.url, active: link.active }"
+                    v-for="(link, index) in meta.links" :key="index">
+                    <a class="page-link" href="#" v-html="link.label" v-on:click="changePage(link)"></a>
+                </li>
+            </ul>
+        </nav>
 
         <div class="card mb-2" v-for="book in books">
             <div class="card-body">
@@ -43,20 +52,14 @@
             </div>
         </div>
 
-{{--        @if(count($books))--}}
-{{--            <div class="mb-3">--}}
-{{--                {{ $books->links() }}--}}
-{{--            </div>--}}
-
-{{--            <div class="mt-3">--}}
-{{--                {{ $books->links() }}--}}
-{{--            </div>--}}
-{{--        @else--}}
-{{--            <div class="text-center">--}}
-{{--                <div class="fs-3">We seems to run out of titles</div>--}}
-{{--                <div>Try searching for another keyword.</div>--}}
-{{--            </div>--}}
-{{--        @endif--}}
+        <nav class="mt-3" aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" :class="{ disabled: !link.url, active: link.active }"
+                    v-for="(link, index) in meta.links" :key="index">
+                    <a class="page-link" href="#" v-html="link.label" v-on:click="changePage(link)"></a>
+                </li>
+            </ul>
+        </nav>
     </div>
 @endsection
 
@@ -72,8 +75,16 @@
         createApp({
             data() {
                 return {
-                    query: null,
+                    query: '',
                     books: [],
+                    meta: {
+                        per_page: 15,
+                        current_page: 1,
+                        from: 0,
+                        to: 0,
+                        total: 0,
+                        links: [],
+                    },
                 }
             },
             methods: {
@@ -81,22 +92,31 @@
                     // Prep URL.
                     let url = new URL(searchEndpoint);
                     url.searchParams.append('q', this.query);
+                    url.searchParams.append('page', this.meta.current_page);
 
                     // Execute API call.
                     axios.get(url).then((res) => {
                         if (res.status === 200) {
-                            console.log(res.data.data);
                             this.books = res.data.data;
+                            this.meta = res.data.meta;
+                            // console.log(res);
                         } else {
                             alert('Failed to load data');
                         }
-                        // console.log(res.data);
                     }).catch(e => {
                         alert('Something went wrong.');
                         console.error(e);
                     }).finally(() => {
                         console.log('Data loading completed.');
                     })
+                },
+
+                changePage(link) {
+                    if (link.url) {
+                        let url = new URL(link.url);
+                        this.meta.current_page = url.searchParams.get('page');
+                        this.search();
+                    }
                 },
             },
             mounted() {
