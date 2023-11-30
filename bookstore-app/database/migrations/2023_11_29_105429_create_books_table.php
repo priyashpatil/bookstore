@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('publisher');
             $table->text('desc');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
