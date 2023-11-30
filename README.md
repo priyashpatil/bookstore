@@ -21,10 +21,16 @@ Architecture: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/
 
 > Seed the fake data by running `php artisan migrate:fresh --seed`.
 
-## Infrastructure (Work in progress)
+## Infrastructure
 
 Deployments are configured with a combination of tools and currently only supports adding application server setup. The
 current deployment for development only for production the scripts and services deployments need to be refactored.
+
+TODO:
+
+- [ ] Supervisor
+- [ ] Meilisearch
+- [ ] Horizon
 
 > Terraform provider will ask for the token while performing the operation.
 
