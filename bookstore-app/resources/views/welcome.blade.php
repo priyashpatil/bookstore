@@ -1,7 +1,7 @@
 @extends('layouts.site')
 
 @section('content')
-    <div id="app" class="container py-3" style="max-width: 720px;">
+    <div id="app" class="container py-3" style="max-width: 720px;" data-api-endpoint="{{route('api.books.index')}}">
         <h1>Welcome to BookStore</h1>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam aperiam dolores id, illum
             laudantium molestias obcaecati reprehenderit sed voluptatum? Deserunt dolore dolorum ducimus eius
@@ -91,7 +91,7 @@
 
     <script type="text/javascript" defer>
         const {createApp} = Vue;
-        const searchEndpoint = 'http://localhost/api/books';
+        const searchEndpoint = document.querySelector('#app').dataset.apiEndpoint;
 
         createApp({
             data() {
