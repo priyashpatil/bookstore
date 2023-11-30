@@ -21,7 +21,17 @@ class BookFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'author' => $this->faker->name,
-            'genre' => $this->faker->word,
+            'genre' => $this->faker->randomElement([
+                'Science Fiction',
+                'Fantasy',
+                'Mystery/Thriller',
+                'Historical Fiction',
+                'Classic Literature',
+                'Non-Fiction',
+                'Science',
+                'Self-Help/Motivational',
+                'Dystopian Fiction',
+                'Biography/Memoir']),
             'isbn' => $this->faker->unique()->isbn13(),
             'image' => $this->faker->imageUrl(width: 500, height: 650),
             'published' => $this->faker->date,
