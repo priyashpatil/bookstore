@@ -10,6 +10,8 @@ Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/v
 
 - PHP 8.2
 - Composer 2.6
+- MySQL
+- Meilisearch
 - Docker
 
 ## Getting Started
