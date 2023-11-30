@@ -29,6 +29,10 @@
             </div>
 
             <div v-if="books.length !== 0">
+                <div class="mb-2">
+                    Showing @{{ meta.from }} to @{{ meta.to }} of @{{ meta.total }}
+                </div>
+
                 <nav class="mt-b" aria-label="Page navigation">
                     <ul class="pagination">
                         <li class="page-item" :class="{ disabled: !link.url, active: link.active }"
