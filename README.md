@@ -7,6 +7,7 @@ Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/v
 ![Alt Text](screenshot.png)
 
 ## Requirements
+
 - PHP 8.2
 - Composer 2.6
 - Docker
@@ -22,8 +23,18 @@ Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/v
 7. Run `./vendor/bin/sail artisan migrate` to run the database migrations.
 8. Storage link `./vendor/bin/sail artisan storage:link`.
 
+### Admin Dashboard
+
+Admin dashboard can be accessed on url `/admin`.
+The admin login requires existing user so consider seeding data for testing.
+
 > Seed with fake data by running `./vendor/bin/sail artisan migrate:fresh --seed`.
 > With the seeder the default admin credentials are email and password are `admin@email.com` and `password`.
+
+### API Endpoints
+
+1. `/api/books` the index endpoint allows paginated search support with `q` and `page` as query parameters.
+2. `/api/books/{book}` detail endpoint to get additional detail of a book.
 
 ## Infrastructure
 
@@ -31,6 +42,7 @@ Deployments are configured with a combination of tools and currently only suppor
 current deployment for development only for production the scripts and services deployments need to be refactored.
 
 TODO:
+
 - [ ] Meilisearch
 - [ ] Supervisor
 
