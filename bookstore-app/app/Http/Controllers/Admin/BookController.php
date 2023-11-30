@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -31,7 +32,24 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'isbn' => 'required|string|min:13|max:13|unique:books,isbn',
+            'genre' => 'required|string|max:50',
+            'published' => 'required|date',
+            'publisher' => 'required|string|max:255',
+            'image' => 'required|image|max:5000',
+            'desc' => 'required|string|max:2000',
+        ]);
+
+        $validated['image'] = Storage::disk('public')
+            ->url($request->file('image')
+                ->store('book-covers', ['disk' => 'public']));
+
+        $book = Book::create($validated);
+
+        return redirect()->route('admin.books.show', $book->id);
     }
 
     /**

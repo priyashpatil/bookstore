@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="h2 pt-3">Add a Book</h1>
 
-    <form action="{{route('admin.books.store')}}" method="POST">
+    <form action="{{route('admin.books.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -20,7 +20,8 @@
             <div class="col-md-4">
                 <div class="mb-3">
                     <label class="form-label" for="author">Author</label>
-                    <input id="author" name="author" type="text" class="form-control @error('author') is-invalid @enderror"
+                    <input id="author" name="author" type="text"
+                           class="form-control @error('author') is-invalid @enderror"
                            required value="{{old('author')}}">
 
                     @error('author')
@@ -43,7 +44,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="isbn">ISBN</label>
                     <input id="isbn" name="isbn" type="text" class="form-control @error('isbn') is-invalid @enderror"
-                           required value="{{old('isbn')}}">
+                           required value="{{old('isbn')}}" minlength="13" maxlength="13">
 
                     @error('isbn')
                     <div class="text-danger">{{$message}}</div>
@@ -53,7 +54,7 @@
             <div class="col-md-4">
                 <div class="mb-3">
                     <label class="form-label" for="image">Image</label>
-                    <input id="image" name="isbn" type="file" class="form-control @error('image') is-invalid @enderror"
+                    <input id="image" name="image" type="file" class="form-control @error('image') is-invalid @enderror"
                            required value="{{old('image')}}" accept="image/*">
 
                     @error('image')

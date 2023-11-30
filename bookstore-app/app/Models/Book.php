@@ -11,6 +11,8 @@ class Book extends Model
     use Searchable;
     use HasFactory;
 
+    protected $fillable = ['title', 'author', 'genre', 'publisher', 'isbn', 'published', 'desc', 'image'];
+
     protected $casts = [
         'published' => 'immutable_date',
     ];
