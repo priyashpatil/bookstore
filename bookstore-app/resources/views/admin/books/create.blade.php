@@ -55,7 +55,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="image">Image</label>
                     <input id="image" name="image" type="file" class="form-control @error('image') is-invalid @enderror"
-                           required value="{{old('image')}}" accept="image/*">
+                           required accept="image/*">
 
                     @error('image')
                     <div class="text-danger">{{$message}}</div>
