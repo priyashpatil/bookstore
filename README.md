@@ -2,8 +2,6 @@
 
 The BookStore App is a simple application developed with Laravel.
 
-Requirement: https://drive.google.com/file/d/1MF9hVbmX7j1iBes2lJbMIY_MWPaNE2yT/view?usp=sharing
-
 ![Alt Text](screenshot.png)
 
 ## Requirements
