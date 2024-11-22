@@ -1,4 +1,4 @@
-# BookStore App - Task
+# BookStore App
 
 The BookStore App is a simple application developed with Laravel.
 
